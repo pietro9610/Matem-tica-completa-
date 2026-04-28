@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Matemática</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #ffffff;
+            --btn-teoria-border: #3498db;
+            --btn-praticar: #2ecc71;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 { margin-bottom: 10px; }
+        .status { color: #888; margin-bottom: 30px; }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 20px;
+            border-top: 5px solid;
+            transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover { transform: translateY(-5px); }
+
+        /* Cores dos Cards */
+        .algebra { border-color: #3498db; } /* Azul */
+        .geometria { border-color: #2ecc71; } /* Verde */
+        .financeira { border-color: #f1c40f; } /* Dourado */
+
+        .card h2 { margin: 0 0 10px 0; font-size: 1.4rem; }
+        .card p { font-style: italic; color: #bbb; font-size: 0.9rem; margin-bottom: 20px; }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            text-align: center;
+            flex: 1;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: 0.3s;
+        }
+
+        .btn-teoria {
+            background: transparent;
+            border: 2px solid var(--btn-teoria-border);
+            color: var(--btn-teoria-border);
+        }
+
+        .btn-teoria:hover {
+            background: var(--btn-teoria-border);
+            color: white;
+        }
+
+        .btn-praticar {
+            background: var(--btn-praticar);
+            border: 2px solid var(--btn-praticar);
+            color: #121212;
+        }
+
+        .btn-praticar:hover {
+            background: transparent;
+            color: var(--btn-praticar);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Painel de Matemática</h1>
+    <p class="status">Você completou 1/8 temas</p>
+
+    <div class="grid-container">
+        
+        <div class="card algebra">
+            <div>
+                <h2>2. Álgebra</h2>
+                <p>Aprendendo a traduzir o mundo para o 'matematiquês'.</p>
+            </div>
+            <div class="btn-group">
+                <a href="#" class="btn btn-teoria">📖 Teoria</a>
+                <a href="#" class="btn btn-praticar">✍️ Treinar</a>
+            </div>
+        </div>
+
+        <div class="card geometria">
+            <div>
+                <h2>3. Geometria Plana</h2>
+                <p>Onde o cálculo ganha forma e desenho.</p>
+            </div>
+            <div class="btn-group">
+                <a href="#" class="btn btn-teoria">📖 Teoria</a>
+                <a href="#" class="btn btn-praticar">✍️ Treinar</a>
+            </div>
+        </div>
+
+        <div class="card financeira">
+            <div>
+                <h2>5. Mat. Financeira</h2>
+                <p>Matemática para o seu bolso e para a vida real.</p>
+            </div>
+            <div class="btn-group">
+                <a href="#" class="btn btn-teoria">📖 Teoria</a>
+                <a href="#" class="btn btn-praticar">✍️ Treinar</a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

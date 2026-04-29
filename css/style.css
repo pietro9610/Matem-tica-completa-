@@ -1,0 +1,71 @@
+/* ==========================================================================
+   SISTEMA DE CORES: PASSO A PASSO DA TEORIA
+   ========================================================================== */
+
+/* Amarelo: Foco no número ou termo atual */
+.foco {
+    color: #f1c40f;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+/* Vermelho: Termos que mudaram de lado ou inverteram o sinal */
+.mudanca {
+    color: #e74c3c;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+/* Verde: O resultado de uma operação em uma linha */
+.resultado {
+    color: #2ecc71;
+    font-weight: bold;
+}
+
+/* Cinza e Riscado: Para termos que se anularam ou foram cortados */
+.cancelado {
+    color: #95a5a6;
+    text-decoration: line-through;
+    opacity: 0.8;
+}
+
+/* ==========================================================================
+   SISTEMA DE FEEDBACK VISUAL: EXERCÍCIOS
+   ========================================================================== */
+
+/* Estilo padrão do input de matemática */
+.input-matematica {
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease;
+    font-family: monospace; /* Fonte boa para números */
+    width: 120px;
+    text-align: center;
+}
+
+/* Quando o aluno ACERTA (Borda verde brilhante) */
+.input-sucesso {
+    border-color: #2ecc71 !important;
+    background-color: #e8f8f5 !important;
+    color: #27ae60;
+    box-shadow: 0 0 8px rgba(46, 204, 113, 0.4);
+}
+
+/* Quando o aluno ERRA (Borda vermelha) */
+.input-erro {
+    border-color: #e74c3c !important;
+    background-color: #fdedec !important;
+    color: #c0392b;
+}
+
+/* Mensagem de Dica / Feedback abaixo do input */
+.feedback-msg {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    min-height: 20px; /* Evita que a página pule quando a mensagem aparecer */
+}

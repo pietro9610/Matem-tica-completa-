@@ -1,73 +1,67 @@
-/**
- * ==========================================================================
- * MOTOR DE CORREÇÃO UNIVERSAL
- * ==========================================================================
- * Valida a entrada do usuário aceitando frações, vírgulas e ignorando espaços.
- * * @param {string} inputId - O ID do campo de texto (input) no HTML.
- * @param {number|string} respostaCorreta - O valor correto (pode ser "1/2" ou 0.5).
- * @param {string} dicaErro - A mensagem que aparece se o aluno errar.
- */
-function validarResposta(inputId, respostaCorreta, dicaErro) {
-    const inputElement = document.getElementById(inputId);
-    
-    // Procura ou cria o espaço para a mensagem de feedback abaixo do input
-    let msgElement = inputElement.nextElementSibling;
-    if (!msgElement || !msgElement.classList.contains('feedback-msg')) {
-        msgElement = document.createElement('span');
-        msgElement.className = 'feedback-msg';
-        // Insere a mensagem logo após o input
-        inputElement.parentNode.insertBefore(msgElement, inputElement.nextSibling);
+// ==========================================
+// CÉREBRO DA PLATAFORMA (Motor de Correção)
+// ==========================================
+
+// 1. Variável de Placar Global
+let acertosGlobais = 0;
+
+// 2. Função de Validação Melhorada
+function validarResposta(inputElement, respostaCorreta) {
+    // ANTI-TRAPAÇA: Se o aluno já acertou (input bloqueado), a função para aqui.
+    if (inputElement.disabled) return;
+
+    // Pega o valor que o aluno digitou
+    let valorDigitado = inputElement.value;
+
+    // LIMPEZA INTELIGENTE: Remove espaços acidentais e troca vírgula por ponto
+    valorDigitado = valorDigitado.trim().replace(',', '.');
+
+    // Se o aluno apagar tudo, o input volta ao estilo padrão
+    if (valorDigitado === "") {
+        inputElement.style.backgroundColor = "transparent";
+        inputElement.style.borderColor = "#323238"; // Borda padrão cinza escuro
+        inputElement.style.color = "#e1e1e6";
+        return;
     }
 
-    // 1. Limpeza da entrada do usuário: tira espaços e troca vírgula por ponto
-    let valorUsuario = inputElement.value.replace(/\s+/g, '').replace(',', '.');
-    let valorCalculado;
+    // Compara a resposta digitada com a correta (ignorando maiúsculas e minúsculas)
+    if (valorDigitado.toLowerCase() === respostaCorreta.toLowerCase()) {
+        
+        // 🟢 FEEDBACK VISUAL: ACERTOU
+        inputElement.style.backgroundColor = "#00875f"; // Fundo verde brilhante
+        inputElement.style.borderColor = "#00875f";
+        inputElement.style.color = "#ffffff";
+        
+        // Bloqueia o campo para registrar o acerto definitivo
+        inputElement.disabled = true;
 
-    // 2. Reconhecimento de Frações (ex: converte "1/2" para 0.5)
-    if (valorUsuario.includes('/')) {
-        const partes = valorUsuario.split('/');
-        // Verifica se realmente tem dois números antes de dividir
-        if (partes.length === 2 && !isNaN(partes[0]) && !isNaN(partes[1]) && partes[1] !== "0") {
-            valorCalculado = parseFloat(partes[0]) / parseFloat(partes[1]);
-        } else {
-            valorCalculado = NaN; // Formato inválido ou divisão por zero
-        }
+        // Soma +1 no placar global e manda atualizar na tela
+        acertosGlobais++;
+        atualizarPlacarNaTela();
+
     } else {
-        // Se não for fração, apenas converte para decimal
-        valorCalculado = parseFloat(valorUsuario);
-    }
-
-    // 3. Tratamento da Resposta Correta (caso seja passada como "1/2" no código)
-    let valorCorretoCalc = typeof respostaCorreta === 'string' && respostaCorreta.includes('/')
-        ? parseFloat(respostaCorreta.split('/')[0]) / parseFloat(respostaCorreta.split('/')[1])
-        : parseFloat(respostaCorreta);
-
-    // 4. Comparação e Feedback (Usa uma pequena margem < 0.0001 para evitar bugs de dízimas periódicas)
-    if (!isNaN(valorCalculado) && Math.abs(valorCalculado - valorCorretoCalc) < 0.0001) {
-        // Acertou!
-        inputElement.classList.remove('input-erro');
-        inputElement.classList.add('input-sucesso');
-        msgElement.innerHTML = '✅ Correto!';
-        msgElement.style.color = '#2ecc71';
-    } else {
-        // Errou!
-        inputElement.classList.remove('input-sucesso');
-        inputElement.classList.add('input-erro');
-        msgElement.innerHTML = '❌ Dica: ' + dicaErro;
-        msgElement.style.color = '#e74c3c';
+        
+        // 🔴 FEEDBACK VISUAL: ERROU
+        inputElement.style.backgroundColor = "#aa2834"; // Fundo vermelho
+        inputElement.style.borderColor = "#aa2834";
+        inputElement.style.color = "#ffffff";
+        
     }
 }
 
-/**
- * ==========================================================================
- * SISTEMA DE NAVEGAÇÃO INTELIGENTE
- * ==========================================================================
- * Uma função segura para voltar ao Dashboard (index.html), não importa em 
- * qual subpasta do projeto o aluno esteja.
- */
+// 3. Função que atualiza o número no HTML
+function atualizarPlacarNaTela() {
+    let elementoPlacar = document.getElementById("contador-acertos");
+    
+    // Verifica se a página atual possui um placar antes de tentar atualizar
+    if (elementoPlacar) {
+        elementoPlacar.innerText = acertosGlobais;
+    }
+}
+
+// 4. Função de Navegação
 function voltarParaHome() {
-    // A estrutura padrão é: /02-algebra/01-expressoes/teoria.html (2 pastas de profundidade)
-    // O comando '../' faz voltar uma pasta. '../../' volta duas pastas até a raiz.
-    // Isso garante que funcione localmente e no GitHub Pages sem quebrar a URL.
-    window.location.href = '../../index.html';
+    // Como os arquivos de conteúdo estão dentro de subpastas como "02-algebra/01-expressoes/",
+    // o "../../" garante que o navegador volte duas pastas para encontrar o index.html na raiz.
+    window.location.href = "../../index.html";
 }

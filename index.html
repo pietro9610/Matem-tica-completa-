@@ -3,140 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard de Matemática</title>
+    <title>Minha Jornada Matemática</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    
     <style>
         :root {
-            --bg-color: #121212;
-            --card-bg: #1e1e1e;
-            --text-color: #ffffff;
-            --btn-teoria-border: #3498db;
-            --btn-praticar: #2ecc71;
+            --bg-escuro: #121214;
+            --card-bg: #202024;
+            --destaque: #00875f;
+            --texto-claro: #e1e1e6;
+            --texto-dica: #8d8d99;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
             margin: 0;
+            padding: 0;
+            background-color: var(--bg-escuro);
+            color: var(--texto-claro);
+            font-family: Arial, Helvetica, sans-serif;
+            min-height: 100vh;
+        }
+
+        /* Cabeçalho Motivacional */
+        header {
+            text-align: center;
+            padding: 40px 20px 30px;
+            background: linear-gradient(180deg, #1a1a1e 0%, var(--bg-escuro) 100%);
+            border-bottom: 1px solid #323238;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            color: #fff;
+        }
+
+        .motivacional {
+            font-size: 0.95rem;
+            color: var(--texto-dica);
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Container que segura os blocos */
+        .container {
             padding: 20px;
+            padding-bottom: 50px;
+        }
+
+        .bloco-titulo {
+            font-size: 1.3rem;
+            color: var(--texto-claro);
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--destaque);
+            display: inline-block;
+        }
+
+        .secao-bloco {
+            margin-bottom: 40px;
+        }
+
+        /* Cards Mobile-First */
+        .card-tema {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px 20px;
+            margin-bottom: 15px;
             display: flex;
             flex-direction: column;
             align-items: center;
-        }
-
-        h1 { margin-bottom: 10px; }
-        .status { color: #888; margin-bottom: 30px; }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            width: 100%;
-            max-width: 1000px;
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            border-radius: 15px;
-            padding: 20px;
-            border-top: 5px solid;
-            transition: transform 0.2s;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .card:hover { transform: translateY(-5px); }
-
-        /* Cores dos Cards */
-        .algebra { border-color: #3498db; } /* Azul */
-        .geometria { border-color: #2ecc71; } /* Verde */
-        .financeira { border-color: #f1c40f; } /* Dourado */
-
-        .card h2 { margin: 0 0 10px 0; font-size: 1.4rem; }
-        .card p { font-style: italic; color: #bbb; font-size: 0.9rem; margin-bottom: 20px; }
-
-        .btn-group {
-            display: flex;
-            gap: 10px;
-        }
-
-        .btn {
-            padding: 10px 15px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
             text-align: center;
-            flex: 1;
-            text-decoration: none;
-            font-size: 0.85rem;
-            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
-        .btn-teoria {
-            background: transparent;
-            border: 2px solid var(--btn-teoria-border);
-            color: var(--btn-teoria-border);
+        .icone {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
         }
 
-        .btn-teoria:hover {
-            background: var(--btn-teoria-border);
+        .card-titulo {
+            font-size: 1.2rem;
+            margin: 0 0 20px 0;
+            font-weight: bold;
+        }
+
+        .btn-iniciar {
+            background-color: var(--destaque);
             color: white;
+            text-decoration: none;
+            padding: 15px;
+            width: 85%;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1rem;
+            text-transform: uppercase;
+            transition: opacity 0.2s;
         }
 
-        .btn-praticar {
-            background: var(--btn-praticar);
-            border: 2px solid var(--btn-praticar);
-            color: #121212;
-        }
-
-        .btn-praticar:hover {
-            background: transparent;
-            color: var(--btn-praticar);
+        .btn-iniciar:active {
+            opacity: 0.8;
         }
     </style>
 </head>
 <body>
 
-    <h1>Painel de Matemática</h1>
-    <p class="status">Você completou 1/8 temas</p>
+    <header>
+        <h1>Minha Jornada Matemática</h1>
+        <p class="motivacional">"O único lugar onde o sucesso vem antes do trabalho é no dicionário."</p>
+    </header>
 
-    <div class="grid-container">
-        
-        <div class="card algebra">
-            <div>
-                <h2>2. Álgebra</h2>
-                <p>Aprendendo a traduzir o mundo para o 'matematiquês'.</p>
+    <div class="container">
+
+        <div class="secao-bloco">
+            <h2 class="bloco-titulo">Bloco 02: Álgebra</h2>
+            
+            <div class="card-tema">
+                <div class="icone">🧮</div>
+                <h3 class="card-titulo">Expressões Algébricas</h3>
+                <a href="02-algebra/01-expressoes/teoria.html" class="btn-iniciar">Começar</a>
             </div>
-            <div class="btn-group">
-                <a href="#" class="btn btn-teoria">📖 Teoria</a>
-                <a href="#" class="btn btn-praticar">✍️ Treinar</a>
+
             </div>
+
+
         </div>
 
-        <div class="card geometria">
-            <div>
-                <h2>3. Geometria Plana</h2>
-                <p>Onde o cálculo ganha forma e desenho.</p>
-            </div>
-            <div class="btn-group">
-                <a href="#" class="btn btn-teoria">📖 Teoria</a>
-                <a href="#" class="btn btn-praticar">✍️ Treinar</a>
-            </div>
-        </div>
-
-        <div class="card financeira">
-            <div>
-                <h2>5. Mat. Financeira</h2>
-                <p>Matemática para o seu bolso e para a vida real.</p>
-            </div>
-            <div class="btn-group">
-                <a href="#" class="btn btn-teoria">📖 Teoria</a>
-                <a href="#" class="btn btn-praticar">✍️ Treinar</a>
-            </div>
-        </div>
-
-    </div>
-
+    <script src="js/brain.js"></script>
 </body>
 </html>

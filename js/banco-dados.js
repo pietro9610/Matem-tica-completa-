@@ -280,5 +280,8 @@ const BANCO_QUESTOES = {
         res: "3(m-5)",
         dica: "Primeiro monte a expressão da 'idade de Maria há 5 anos' entre parênteses. Depois multiplique pelo triplo.",
         ops: "Idade de Maria há 5 anos = (m - 5). João tem o triplo disso = 3 * (m - 5) ou 3(m-5)."
-    }
-]
+        
+            }
+    ] 
+  }
+};

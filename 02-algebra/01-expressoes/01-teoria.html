@@ -1,55 +1,200 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Introdução à Álgebra</title>
+    <title>Teoria: Introdução à Álgebra</title>
     <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        /* Estilos rápidos para os botões de abrir/fechar e cores do texto */
+        .btn-toggle {
+            background-color: #34495e;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+            width: 100%;
+            transition: 0.3s;
+        }
+        .btn-toggle:hover {
+            background-color: #2c3e50;
+        }
+        .conteudo-nivel {
+            display: none; /* Começa escondido */
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            border-left: 4px solid #555;
+        }
+        /* Paleta de Cores Didática */
+        .cor-x { color: #e74c3c; font-weight: bold; } /* Vermelho para o desconhecido */
+        .cor-op1 { color: #3498db; font-weight: bold; } /* Azul para primeira operação */
+        .cor-op2 { color: #2ecc71; font-weight: bold; } /* Verde para segunda operação */
+        .cor-op3 { color: #9b59b6; font-weight: bold; } /* Roxo para extras */
+    </style>
 </head>
 <body>
 
     <div class="barra-progresso">
-        <button class="btn-voltar" onclick="voltarParaHome()">⬅ Voltar</button>
-        <div class="placar-box">Acertos: <span id="contador-acertos">0</span></div>
+        <button class="btn-voltar" onclick="voltarParaHome()">← Voltar</button>
+        <div class="placar">
+            Acertos: <span id="contador-acertos">0</span>
+        </div>
     </div>
 
-    <div class="card">
-        <h3>🏺 De onde surgiu a Álgebra?</h3>
-        <p>Esqueça essa ideia de que matemática é só fazer contas chatas. Há milhares de anos, povos antigos como os árabes e os egípcios tinham um problema real: eles precisavam descobrir valores que "sumiam" ou que ninguém sabia quais eram.</p>
-        <p>A palavra Álgebra vem do árabe <strong>"Al-Jabr"</strong>, que significa <span class="foco">"restaurar"</span> ou "reunir o que foi quebrado". É literalmente a arte de encontrar as peças que faltam num quebra-cabeça!</p>
-    </div>
+    <div class="container" style="max-width: 800px; margin: 0 auto; padding: 20px;">
+        <h1 class="titulo-pagina" style="text-align: center; color: #fff;">Introdução à Álgebra</h1>
 
-    <div class="card">
-        <h3>🕵️ O Trabalho de Detetive</h3>
-        <p>A Álgebra é um grande jogo de investigação. A famosa letra não é um bicho-papão, ela é apenas o <span class="foco">nosso suspeito usando um disfarce</span>. Nosso objetivo é tirar o disfarce do "x" para ver que número ele é de verdade.</p>
-        <p><strong>Pense na Caixa Mágica:</strong> Eu tenho uma caixa fechada. Se eu colocar 5 balas dentro dela e agora, ao todo, tenho 12 balas... quantas balas já estavam lá?</p>
-        <p>No ensino fundamental, a gente escrevia: <span class="resultado">? + 5 = 12</span></p>
-        <p>Os matemáticos apenas trocaram o ponto de interrogação (?) por uma letra. É só isso e mais nada!</p>
-    </div>
+        <div class="card">
+            <h2>📦 O que é Álgebra?</h2>
+            <p>Fala, estudante! Bem-vindo à Álgebra, mais conhecida como a <span class="foco" style="color: #f1c40f;">Matemática das Letras</span>. Mas respira fundo, as letras não estão aqui para te assombrar.</p>
+            <p>Pense nas letras como <strong>caixas vazias</strong> ou gavetas. Elas apenas guardam o lugar de um número que a gente ainda não sabe qual é, ou de um número que pode ficar mudando toda hora.</p>
+        </div>
 
-    <div class="card">
-        <h3>🗣️ Tradução Visual</h3>
-        <p>Aprender Álgebra é só aprender a traduzir o português para o idioma dos detetives. Veja como é simples:</p>
-        <ul style="line-height: 2; list-style: none; padding-left: 0;">
-            <li>🕵️ O suspeito ➞ <span class="foco">x</span></li>
-            <li>👥 O dobro do suspeito ➞ <span class="foco">2x</span></li>
-            <li>🍰 Metade do suspeito ➞ <span class="foco">x/2</span></li>
-            <li>🎁 O suspeito com mais 3 ➞ <span class="foco">x + 3</span></li>
-        </ul>
-    </div>
+        <div class="card">
+            <h2>👕 Por que usar letras? (A Fábrica)</h2>
+            <p>Imagina que você montou uma fábrica de camisetas. Você calculou que tem um lucro de <strong>R$ 20,00 por cada camiseta</strong> que vende.</p>
+            <ul>
+                <li>Se vender 1 camiseta: Ganha 20 × 1 = R$ 20</li>
+                <li>Se vender 5 camisetas: Ganha 20 × 5 = R$ 100</li>
+            </ul>
+            <p>Mas quando você acorda de manhã, você não sabe quantas vai vender no dia. Como a quantidade é um mistério, chamamos ela de <span class="cor-x">x</span>. Então, a fórmula mágica do seu negócio é:</p>
+            <div style="text-align: center; font-size: 1.3em; background: #222; padding: 15px; border-radius: 8px; border: 1px dashed #f1c40f; margin: 15px 0;">
+                Lucro = 20<span class="cor-x">x</span>
+            </div>
+        </div>
 
-    <div class="card">
-        <details>
-            <summary style="cursor: pointer; font-size: 1.1rem; font-weight: bold; color: #f1c40f;">
-                💡 Macete: A Regra do Detetive
-            </summary>
-            <p style="margin-top: 15px;">Sempre que o mistério disser as palavras <strong style="color: #e74c3c;">"UM NÚMERO"</strong>, esse é o seu gatilho mental. Não pense duas vezes: escreva imediatamente a letra <span class="resultado">x</span> no papel. Esse é o primeiro passo para pegar o suspeito!</p>
+        <div class="card" style="border-left: 5px solid #2ecc71;">
+            <h3>🟢 Tradução: Nível Fácil</h3>
+            <p>O básico de transformar português em matemática. Vamos aprender a ler as palavras certas!</p>
+            <button class="btn-toggle" onclick="toggleNivel('conteudo-facil', this)">Abrir Nível Fácil 🔽</button>
+            
+            <div id="conteudo-facil" class="conteudo-nivel" style="border-left-color: #2ecc71;">
+                <p>Veja como as cores se conectam:</p>
+                <ul style="line-height: 2;">
+                    <li>
+                        O <span class="cor-op1">dobro</span> de <span class="cor-x">um número</span> <br>
+                        👉 <span class="cor-op1">2</span> <span class="cor-x">X</span>
+                    </li>
+                    <hr style="border: 0.5px solid #333; margin: 10px 0;">
+                    <li>
+                        A <span class="cor-op1">metade</span> de <span class="cor-x">um número</span> <br>
+                        👉 <span class="cor-x">X</span> <span class="cor-op1">/ 2</span>
+                    </li>
+                    <hr style="border: 0.5px solid #333; margin: 10px 0;">
+                    <li>
+                        <span class="cor-x">Um número</span> <span class="cor-op2">aumentado de 3</span> <br>
+                        👉 <span class="cor-x">X</span> <span class="cor-op2">+ 3</span>
+                    </li>
+                </ul>
+                <div style="text-align: right;">
+                    <button class="btn-toggle" style="width: auto; background: #c0392b;" onclick="toggleNivel('conteudo-facil', this.parentElement.previousElementSibling)">Fechar 🔼</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="border-left: 5px solid #f1c40f;">
+            <h3>🟡 Tradução: Nível Médio</h3>
+            <p>Aqui as frases ficam maiores e misturamos mais de uma operação matemática.</p>
+            <button class="btn-toggle" onclick="toggleNivel('conteudo-medio', this)">Abrir Nível Médio 🔽</button>
+            
+            <div id="conteudo-medio" class="conteudo-nivel" style="border-left-color: #f1c40f;">
+                <p>Atenção à ordem das palavras:</p>
+                <ul style="line-height: 2;">
+                    <li>
+                        O <span class="cor-op1">triplo</span> de <span class="cor-x">um número</span> <span class="cor-op2">menos cinco</span> <br>
+                        👉 <span class="cor-op1">3</span><span class="cor-x">X</span> <span class="cor-op2">- 5</span>
+                    </li>
+                    <hr style="border: 0.5px solid #333; margin: 10px 0;">
+                    <li>
+                        <span class="cor-op1">A soma</span> de <span class="cor-x">um número</span> com o <span class="cor-op2">seu dobro</span> <br>
+                        👉 <span class="cor-x">X</span> <span class="cor-op1">+</span> <span class="cor-op2">2</span><span class="cor-x">X</span>
+                    </li>
+                    <hr style="border: 0.5px solid #333; margin: 10px 0;">
+                    <li>
+                        <span class="cor-x">Um número</span> <span class="cor-op1">ao quadrado</span> <span class="cor-op2">mais dez</span> <br>
+                        👉 <span class="cor-x">X</span><span class="cor-op1">^2</span> <span class="cor-op2">+ 10</span>
+                    </li>
+                </ul>
+                <div style="text-align: right;">
+                    <button class="btn-toggle" style="width: auto; background: #c0392b;" onclick="toggleNivel('conteudo-medio', this.parentElement.previousElementSibling)">Fechar 🔼</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="border-left: 5px solid #e74c3c;">
+            <h3>🔴 Tradução: Nível PRO (Padrão ENEM)</h3>
+            <p>O ENEM não fala "um número", ele conta uma historinha. Vamos decifrar a vida real!</p>
+            <button class="btn-toggle" onclick="toggleNivel('conteudo-dificil', this)">Abrir Nível PRO 🔽</button>
+            
+            <div id="conteudo-dificil" class="conteudo-nivel" style="border-left-color: #e74c3c;">
+                <p>Pegue cada informação e traduza para montar a fórmula:</p>
+                
+                <div style="background: #111; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                    <p><em>"Para consertar a geladeira, o técnico cobra uma <span class="cor-op1">taxa fixa de visita de R$ 50</span>, <span class="cor-op2">mais</span> <span class="cor-op3">R$ 30 por cada hora</span> de trabalho."</em></p>
+                    
+                    <p><strong>A Lógica:</strong> A <span class="cor-op1">taxa é fixa</span> (não muda). O que muda? As horas de trabalho! Como não sabemos quantas horas ele vai gastar, <span class="cor-x">a hora vira o nosso "X"</span>.</p>
+                    
+                    <p style="font-size: 1.2em; text-align: center; margin-top: 10px;">
+                        <strong>Tradução:</strong> <span class="cor-op1">50</span> <span class="cor-op2">+</span> <span class="cor-op3">30</span><span class="cor-x">X</span>
+                    </p>
+                </div>
+
+                <div style="text-align: right;">
+                    <button class="btn-toggle" style="width: auto; background: #c0392b;" onclick="toggleNivel('conteudo-dificil', this.parentElement.previousElementSibling)">Fechar 🔼</button>
+                </div>
+            </div>
+        </div>
+
+        <details class="card" style="cursor: pointer; background: #2c3e50; border-left: 5px solid #3498db;">
+            <summary style="font-size: 1.1em; color: #fff;">💡 <strong>Macete: A Regra do Olhou-Escreveu</strong> (Clique para revelar)</summary>
+            <div style="padding-top: 15px;">
+                <p>Sempre que você estiver lendo um problema e aparecer a expressão <span class="foco" style="color: #f1c40f; font-weight: bold;">"UM NÚMERO"</span> e a questão não te disser qual é, um alarme deve tocar na sua cabeça!</p>
+                <p><strong>O Alarme:</strong> Olhou "um número"? Escreveu <span class="cor-x" style="font-size: 1.2em;">X</span> na mesma hora! O restante da frase vai te dizer o que fazer com ele (multiplicar, somar, dividir...).</p>
+            </div>
         </details>
-    </div>
 
-    <a href="../../exercicios.html?tema=algebra_expressoes&nivel=dificil" class="btn-acao">VAMOS PRATICAR!</a>
+        <div style="text-align: center; margin-top: 40px; margin-bottom: 60px;">
+            <a href="02-exercicios.html" class="btn-acao" style="text-decoration: none; display: inline-block; padding: 15px 40px; font-size: 1.2em; background-color: #2ecc71; color: #000; font-weight: bold; border-radius: 8px; box-shadow: 0 4px 10px rgba(46, 204, 113, 0.4); transition: transform 0.2s;">
+                VAMOS PRATICAR! 🚀
+            </a>
+        </div>
+    </div>
 
     <script src="../../js/brain.js"></script>
+    <script>
+        // Lógica para os botões de Abrir/Fechar as teorias
+        function toggleNivel(idConteudo, btnElement) {
+            const conteudo = document.getElementById(idConteudo);
+            
+            // Se estiver escondido, mostra. Se estiver visível, esconde.
+            if (conteudo.style.display === "none" || conteudo.style.display === "") {
+                conteudo.style.display = "block";
+                
+                // Pega o nome do nível pelo texto original do botão
+                let nomeNivel = btnElement.innerText.replace("Abrir ", "").replace(" 🔽", "");
+                btnElement.innerText = "Fechar " + nomeNivel + " 🔼";
+                btnElement.style.backgroundColor = "#c0392b"; // Fica vermelho ao abrir
+            } else {
+                conteudo.style.display = "none";
+                
+                // Restaura o texto original
+                let nomeNivel = btnElement.innerText.replace("Fechar ", "").replace(" 🔼", "");
+                btnElement.innerText = "Abrir " + nomeNivel + " 🔽";
+                btnElement.style.backgroundColor = "#34495e"; // Volta a cor original
+            }
+        }
 
+        // Garante que o placar seja atualizado ao carregar a página
+        window.onload = function() {
+            if (typeof atualizarPlacarNaTela === "function") {
+                atualizarPlacarNaTela();
+            }
+        };
+    </script>
 </body>
 </html>

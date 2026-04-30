@@ -82,13 +82,13 @@ function gerarExercicios(tema, nivel) {
     sorteadas.forEach((item, index) => {
         const card = document.createElement('div');
         card.className = 'card-exercicio';
-        card.innerHTML = `
+                        card.innerHTML = `
             <h3>Desafio ${index + 1}</h3>
             <p>${item.q}</p>
 
             <input type="text" class="input-resposta" 
                    onchange="conferir(this, '${item.res}', 'dica-${index}')"
-                   placeholder="Sua resposta...">
+                   placeholder="Ex: x^2 (use ^ para potência)">
 
             <p id="dica-${index}" class="texto-dica" style="display:none; color: #f39c12; margin-top: 10px;">
                 💡 <strong>Dica:</strong> ${item.dica}
@@ -101,6 +101,10 @@ function gerarExercicios(tema, nivel) {
             <div id="res-${index}" class="painel-resolucao" style="display:none; background: #222; padding: 10px; border-radius: 5px; margin-top: 5px; border-left: 4px solid #3498db;">
                 <hr style="border: 0.5px solid #444;">
                 <p style="color: #bdc3c7;">${item.ops}</p>
+            </div>
+        `;
+        container.appendChild(card);
+
             </div>
         `;
         container.appendChild(card);

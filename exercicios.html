@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafios de Matemática</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Um estilo rápido para os cards não ficarem grudados */
+        .card-exercicio {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .input-resposta {
+            padding: 10px;
+            width: 100%;
+            max-width: 200px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .header {
+            padding: 20px;
+            background: #333;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <button onclick="window.history.back()" style="padding: 10px; cursor: pointer;">⬅ Voltar</button>
+        <div class="placar">Acertos: <span id="contador-acertos">0</span>/10</div>
+    </div>
+
+    <div id="container-questoes" style="padding: 20px; max-width: 800px; margin: auto;">
+        <p style="text-align:center;">Carregando seus desafios nível PRO...</p>
+    </div>
+
+    <script src="js/banco-dados.js"></script>
+    <script src="js/brain.js"></script>
+
+    <script>
+        // Quando a página abrir, ela avisa o brain.js para sortear as questões
+        window.onload = () => {
+            if (typeof gerarExercicios === 'function') {
+                gerarExercicios('algebra_expressoes', 'dificil');
+            } else {
+                console.log("Erro: A função gerarExercicios não foi encontrada no brain.js");
+            }
+        };
+    </script>
+</body>
+</html>
+

@@ -73,16 +73,17 @@ function voltarParaHome() {
 function gerarExercicios(tema, nivel) {
     const container = document.getElementById('container-questoes');
     const lista = BANCO_QUESTOES[tema][nivel];
-    
+
     // Sorteia 10 aleatórias
     const sorteadas = lista.sort(() => Math.random() - 0.5).slice(0, 10);
-    
+
     container.innerHTML = ""; // Limpa o aviso de carregando
 
     sorteadas.forEach((item, index) => {
         const card = document.createElement('div');
         card.className = 'card-exercicio';
-                        card.innerHTML = `
+        
+        card.innerHTML = `
             <h3>Desafio ${index + 1}</h3>
             <p>${item.q}</p>
 
@@ -103,13 +104,11 @@ function gerarExercicios(tema, nivel) {
                 <p style="color: #bdc3c7;">${item.ops}</p>
             </div>
         `;
-        container.appendChild(card);
-
-            </div>
-        `;
+        
         container.appendChild(card);
     });
 }
+
 
 // 2. Função para mostrar/esconder a resolução
 function toggleResolucao(id) {

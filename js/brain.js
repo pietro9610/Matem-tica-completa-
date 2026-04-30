@@ -67,13 +67,17 @@ function voltarParaHome() {
 }
 
 // Função para desenhar as questões na tela
+// --- FUNÇÕES DE EXERCÍCIOS (DA LINHA 70 PARA BAIXO) ---
+
 // 1. Função para desenhar as questões na tela (COM DICA E RESOLUÇÃO)
 function gerarExercicios(tema, nivel) {
     const container = document.getElementById('container-questoes');
     const lista = BANCO_QUESTOES[tema][nivel];
+    
+    // Sorteia 10 aleatórias
     const sorteadas = lista.sort(() => Math.random() - 0.5).slice(0, 10);
-
-    container.innerHTML = ""; 
+    
+    container.innerHTML = ""; // Limpa o aviso de carregando
 
     sorteadas.forEach((item, index) => {
         const card = document.createElement('div');
@@ -81,20 +85,22 @@ function gerarExercicios(tema, nivel) {
         card.innerHTML = `
             <h3>Desafio ${index + 1}</h3>
             <p>${item.q}</p>
-            
+
             <input type="text" class="input-resposta" 
-                   onchange="conferir(this, '${item.res}', 'dica-${index}')" 
+                   onchange="conferir(this, '${item.res}', 'dica-${index}')"
                    placeholder="Sua resposta...">
-            
-            <p id="dica-${index}" class="texto-dica" style="display:none; color: #ffcc00; margin-top:10px; font-size:0.9rem;">
-                💡 <strong>Dica:</strong> ${item.dica || 'Pense bem na fórmula!'}
+
+            <p id="dica-${index}" class="texto-dica" style="display:none; color: #f39c12; margin-top: 10px;">
+                💡 <strong>Dica:</strong> ${item.dica}
             </p>
 
-            <button class="btn-resolucao" onclick="toggleResolucao('res-${index}')" style="margin-top:15px; cursor:pointer;">Ver Resolução</button>
-            
-            <div id="res-${index}" class="painel-resolucao" style="display:none; background:#252525; padding:10px; margin-top:10px; border-radius:5px;">
-                <hr>
-                <p>${item.ops || 'Tente resolver usando a lógica da teoria!'}</p>
+            <button class="btn-resolucao" onclick="toggleResolucao('res-${index}')" style="margin-top: 10px; display: block; background: #3498db; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">
+                Ver Resolução
+            </button>
+
+            <div id="res-${index}" class="painel-resolucao" style="display:none; background: #222; padding: 10px; border-radius: 5px; margin-top: 5px; border-left: 4px solid #3498db;">
+                <hr style="border: 0.5px solid #444;">
+                <p style="color: #bdc3c7;">${item.ops}</p>
             </div>
         `;
         container.appendChild(card);
@@ -110,16 +116,17 @@ function toggleResolucao(id) {
 // 3. Função para conferir a resposta (Mostra a dica se errar)
 function conferir(campo, correta, idDica) {
     const dicaElement = document.getElementById(idDica);
-    if (campo.value.trim() === correta) {
+    
+    // Normaliza a resposta (remove espaços e ignora maiúsculas)
+    if (campo.value.trim().toLowerCase() === correta.toLowerCase()) {
         campo.style.borderColor = "#2ecc71";
         campo.style.backgroundColor = "#e8f8f0";
         campo.style.color = "#000";
         campo.disabled = true;
         dicaElement.style.display = 'none'; // Esconde a dica se acertar
-        alert("Correto! Mandou bem!");
     } else {
         campo.style.borderColor = "#e74c3c";
-        campo.style.backgroundColor = "#fceae9";
+        campo.style.backgroundColor = "#fccae9";
         campo.style.color = "#000";
         dicaElement.style.display = 'block'; // MOSTRA A DICA SE ERRAR!
     }

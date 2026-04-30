@@ -65,3 +65,41 @@ function voltarParaHome() {
     // o "../../" garante que o navegador volte duas pastas para encontrar o index.html na raiz.
     window.location.href = "../../index.html";
 }
+
+// Função para desenhar as questões na tela
+function gerarExercicios(tema, nivel) {
+    const container = document.getElementById('container-questoes');
+    
+    // Pega as perguntas do banco-dados.js
+    const lista = BANCO_QUESTOES[tema][nivel];
+
+    // Sorteia 10 aleatórias
+    const sorteadas = lista.sort(() => Math.random() - 0.5).slice(0, 10);
+
+    container.innerHTML = ""; // Limpa o aviso de carregando
+
+    sorteadas.forEach((item, index) => {
+        const card = document.createElement('div');
+        card.className = 'card-exercicio';
+        card.innerHTML = `
+            <h3>Desafio ${index + 1}</h3>
+            <p>${item.q}</p>
+            <input type="text" class="input-resposta" 
+                   onchange="conferir(this, '${item.res}')" 
+                   placeholder="Sua resposta...">
+        `;
+        container.appendChild(card);
+    });
+}
+
+// Função para conferir se acertou
+function conferir(campo, correta) {
+    if (campo.value.trim() === correta) {
+        campo.style.borderColor = "#2ecc71";
+        campo.style.backgroundColor = "#e8f8f0";
+        campo.disabled = true;
+    } else {
+        campo.style.borderColor = "#e74c3c";
+        campo.style.backgroundColor = "#fceae9";
+    }
+}

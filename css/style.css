@@ -147,3 +147,59 @@ body {
 .oculto {
     display: none !important;
 }
+
+/* Estilo para a página de exercícios (Modo Dark) */
+body {
+    background-color: #121212; /* Fundo bem escuro */
+    color: #e0e0e0; /* Texto claro, mas não branco puro */
+    font-family: sans-serif;
+}
+
+.card-exercicio {
+    background-color: #1e1e1e; /* Card um pouco mais claro que o fundo */
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.card-exercicio h3 {
+    color: #4caf50; /* Título em verde para dar destaque */
+    margin-top: 0;
+}
+
+.card-exercicio p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #ffffff; /* Texto da pergunta em branco total para ler bem */
+}
+
+.input-resposta {
+    background-color: #2c2c2c; /* Fundo do campo de digitar */
+    border: 2px solid #444;
+    border-radius: 8px;
+    color: #00ff88; /* O que o aluno digita fica em verde neon */
+    padding: 12px;
+    width: 100%;
+    max-width: 300px;
+    font-size: 18px;
+    margin-top: 10px;
+    outline: none;
+}
+
+.input-resposta::placeholder {
+    color: #777; /* "Sua resposta..." fica cinza escuro */
+}
+
+/* Quando o aluno clica no campo */
+.input-resposta:focus {
+    border-color: #4caf50;
+}
+
+.header {
+    background-color: #1a1a1a;
+    border-bottom: 2px solid #333;
+    padding: 15px;
+    margin-bottom: 20px;
+}

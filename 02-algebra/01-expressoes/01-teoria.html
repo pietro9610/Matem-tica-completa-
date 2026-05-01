@@ -6,195 +6,200 @@
     <title>Teoria: Introdução à Álgebra</title>
     <link rel="stylesheet" href="../../css/style.css">
     <style>
-        /* Estilos rápidos para os botões de abrir/fechar e cores do texto */
+        /* Estilos exclusivos para a interatividade da teoria */
+        .secao-nivel { margin-bottom: 25px; }
+        
         .btn-toggle {
             background-color: #34495e;
-            color: #fff;
+            color: white;
             border: none;
-            padding: 8px 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            margin-top: 10px;
-            width: 100%;
-            transition: 0.3s;
-        }
-        .btn-toggle:hover {
-            background-color: #2c3e50;
-        }
-        .conteudo-nivel {
-            display: none; /* Começa escondido */
-            margin-top: 15px;
             padding: 15px;
-            background-color: #1a1a1a;
             border-radius: 8px;
-            border-left: 4px solid #555;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
         }
-        /* Paleta de Cores Didática */
-        .cor-x { color: #e74c3c; font-weight: bold; } /* Vermelho para o desconhecido */
-        .cor-op1 { color: #3498db; font-weight: bold; } /* Azul para primeira operação */
-        .cor-op2 { color: #2ecc71; font-weight: bold; } /* Verde para segunda operação */
-        .cor-op3 { color: #9b59b6; font-weight: bold; } /* Roxo para extras */
+
+        .btn-toggle:hover {
+            filter: brightness(1.2);
+        }
+
+        .conteudo-nivel {
+            display: none; /* Escondido por padrão */
+            padding: 25px 20px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            line-height: 1.6;
+        }
+
+        /* Cores Pedagógicas */
+        .cor-x { color: #e74c3c; font-weight: bold; font-size: 1.1em; } /* Vermelho para a incógnita */
+        .cor-num { color: #3498db; font-weight: bold; } /* Azul para o número/operação */
+        .cor-extra { color: #2ecc71; font-weight: bold; } /* Verde para a segunda operação */
+        .foco { background: #f1c40f; color: #000; padding: 2px 6px; border-radius: 4px; font-weight: bold; }
+
+        .exemplo-box {
+            background: #0d0d0d;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 5px solid #f1c40f;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        .dica-professor {
+            background: rgba(52, 152, 219, 0.1);
+            border: 1px dashed #3498db;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 0.95em;
+        }
     </style>
 </head>
 <body>
 
     <div class="barra-progresso">
         <button class="btn-voltar" onclick="voltarParaHome()">← Voltar</button>
-        <div class="placar">
-            Acertos: <span id="contador-acertos">0</span>
-        </div>
+        <div class="placar">Acertos: <span id="contador-acertos">0</span></div>
     </div>
 
-    <div class="container" style="max-width: 800px; margin: 0 auto; padding: 20px;">
-        <h1 class="titulo-pagina" style="text-align: center; color: #fff;">Introdução à Álgebra</h1>
+    <div class="container">
+        <h1 class="titulo-pagina">Introdução à Álgebra</h1>
 
         <div class="card">
-            <h2>📦 O que é Álgebra?</h2>
-            <p>Fala, estudante! Bem-vindo à Álgebra, mais conhecida como a <span class="foco" style="color: #f1c40f;">Matemática das Letras</span>. Mas respira fundo, as letras não estão aqui para te assombrar.</p>
-            <p>Pense nas letras como <strong>caixas vazias</strong> ou gavetas. Elas apenas guardam o lugar de um número que a gente ainda não sabe qual é, ou de um número que pode ficar mudando toda hora.</p>
+            <h2>📦 O que é Álgebra? (E por que não precisa ter medo)</h2>
+            <p>A Álgebra é a famosa <span class="foco">Matemática das Letras</span>. Mas preste muita atenção: as letras não estão ali para deixar a conta mais difícil.</p>
+            <p>Imagine que as letras são como <strong>caixas vazias</strong> ou "gavetas" esperando por um número que você ainda não conhece. A gente usa a letra para deixar a "fórmula" pronta. Assim, quando descobrirmos o número, é só jogar ele lá dentro!</p>
         </div>
 
         <div class="card">
-            <h2>👕 Por que usar letras? (A Fábrica)</h2>
-            <p>Imagina que você montou uma fábrica de camisetas. Você calculou que tem um lucro de <strong>R$ 20,00 por cada camiseta</strong> que vende.</p>
-            <ul>
-                <li>Se vender 1 camiseta: Ganha 20 × 1 = R$ 20</li>
-                <li>Se vender 5 camisetas: Ganha 20 × 5 = R$ 100</li>
-            </ul>
-            <p>Mas quando você acorda de manhã, você não sabe quantas vai vender no dia. Como a quantidade é um mistério, chamamos ela de <span class="cor-x">x</span>. Então, a fórmula mágica do seu negócio é:</p>
-            <div style="text-align: center; font-size: 1.3em; background: #222; padding: 15px; border-radius: 8px; border: 1px dashed #f1c40f; margin: 15px 0;">
-                Lucro = 20<span class="cor-x">x</span>
+            <h2>👕 A Mágica da Fábrica</h2>
+            <p>Se você tem uma fábrica e lucra <strong>R$ 20</strong> por cada camiseta vendida, você não vai criar uma conta nova todo dia de manhã.</p>
+            <p>Como você ainda não sabe quantas vai vender hoje, você chama a "quantidade de camisetas" de <span class="cor-x">x</span>. O seu lucro diário sempre será:</p>
+            <div class="exemplo-box" style="text-align: center; font-size: 1.8em;">
+                Lucro = <span class="cor-num">20</span><span class="cor-x">x</span>
+            </div>
+            <div class="dica-professor">
+                👨‍🏫 <strong>Segredo de Ouro:</strong> Na matemática, quando um número está colado em uma letra (tipo <span class="cor-num">20</span><span class="cor-x">x</span>), existe um <strong>sinal de multiplicação invisível</strong> entre eles. É o mesmo que fazer 20 vezes o X!
             </div>
         </div>
 
-        <div class="card" style="border-left: 5px solid #2ecc71;">
-            <h3>🟢 Tradução: Nível Fácil</h3>
-            <p>O básico de transformar português em matemática. Vamos aprender a ler as palavras certas!</p>
-            <button class="btn-toggle" onclick="toggleNivel('conteudo-facil', this)">Abrir Nível Fácil 🔽</button>
-            
-            <div id="conteudo-facil" class="conteudo-nivel" style="border-left-color: #2ecc71;">
-                <p>Veja como as cores se conectam:</p>
-                <ul style="line-height: 2;">
-                    <li>
-                        O <span class="cor-op1">dobro</span> de <span class="cor-x">um número</span> <br>
-                        👉 <span class="cor-op1">2</span> <span class="cor-x">X</span>
+        <div class="secao-nivel">
+            <button class="btn-toggle" onclick="toggleTeoria('facil', this)">
+                <span>🟢 NÍVEL: FÁCIL (Operações Diretas)</span>
+                <span class="seta">ABRIR 🔽</span>
+            </button>
+            <div id="facil" class="conteudo-nivel">
+                <p>Aqui você aprende a ler o "Matematiquês". Traduzimos direto do português:</p>
+                <ul style="font-size: 1.1em; margin-left: 20px;">
+                    <li style="margin-bottom: 10px;">O <span class="cor-num">dobro</span> de <span class="cor-x">um número</span>: 👉 <span class="cor-num">2</span><span class="cor-x">x</span></li>
+                    <li style="margin-bottom: 10px;">A <span class="cor-num">metade</span> de <span class="cor-x">um número</span>: 👉 <span class="cor-x">x</span><span class="cor-num">/2</span></li>
+                    <li><span class="cor-x">Um número</span> <span class="cor-num">aumentado de 3</span>: 👉 <span class="cor-x">x</span> <span class="cor-num">+ 3</span></li>
+                </ul>
+                <button class="btn-toggle" style="background: #c0392b; margin-top: 20px; padding: 10px;" onclick="toggleTeoria('facil', this.parentElement.previousElementSibling)">FECHAR NÍVEL FÁCIL 🔼</button>
+            </div>
+        </div>
+
+        <div class="secao-nivel">
+            <button class="btn-toggle" onclick="toggleTeoria('medio', this)">
+                <span>🟡 NÍVEL: MÉDIO (Misturando Tudo)</span>
+                <span class="seta">ABRIR 🔽</span>
+            </button>
+            <div id="medio" class="conteudo-nivel">
+                <p>Para não se perder, leia a frase pausadamente, como se estivesse montando um quebra-cabeça da esquerda para a direita:</p>
+                <ul style="font-size: 1.1em; margin-left: 20px;">
+                    <li style="margin-bottom: 15px;">
+                        "O <span class="cor-num">triplo</span> de <span class="cor-x">um número</span> <span class="cor-extra">menos cinco</span>" <br>
+                        👉 <span class="cor-num">3</span><span class="cor-x">x</span> <span class="cor-extra">- 5</span>
                     </li>
-                    <hr style="border: 0.5px solid #333; margin: 10px 0;">
                     <li>
-                        A <span class="cor-op1">metade</span> de <span class="cor-x">um número</span> <br>
-                        👉 <span class="cor-x">X</span> <span class="cor-op1">/ 2</span>
-                    </li>
-                    <hr style="border: 0.5px solid #333; margin: 10px 0;">
-                    <li>
-                        <span class="cor-x">Um número</span> <span class="cor-op2">aumentado de 3</span> <br>
-                        👉 <span class="cor-x">X</span> <span class="cor-op2">+ 3</span>
+                        "A <span class="cor-num">soma</span> do <span class="cor-num">dobro</span> de <span class="cor-x">x</span> com <span class="cor-extra">7</span>"<br>
+                        👉 <span class="cor-num">2</span><span class="cor-x">x</span> <span class="cor-num">+</span> <span class="cor-extra">7</span>
                     </li>
                 </ul>
-                <div style="text-align: right;">
-                    <button class="btn-toggle" style="width: auto; background: #c0392b;" onclick="toggleNivel('conteudo-facil', this.parentElement.previousElementSibling)">Fechar 🔼</button>
-                </div>
+                <button class="btn-toggle" style="background: #c0392b; margin-top: 20px; padding: 10px;" onclick="toggleTeoria('medio', this.parentElement.previousElementSibling)">FECHAR NÍVEL MÉDIO 🔼</button>
             </div>
         </div>
 
-        <div class="card" style="border-left: 5px solid #f1c40f;">
-            <h3>🟡 Tradução: Nível Médio</h3>
-            <p>Aqui as frases ficam maiores e misturamos mais de uma operação matemática.</p>
-            <button class="btn-toggle" onclick="toggleNivel('conteudo-medio', this)">Abrir Nível Médio 🔽</button>
-            
-            <div id="conteudo-medio" class="conteudo-nivel" style="border-left-color: #f1c40f;">
-                <p>Atenção à ordem das palavras:</p>
-                <ul style="line-height: 2;">
-                    <li>
-                        O <span class="cor-op1">triplo</span> de <span class="cor-x">um número</span> <span class="cor-op2">menos cinco</span> <br>
-                        👉 <span class="cor-op1">3</span><span class="cor-x">X</span> <span class="cor-op2">- 5</span>
-                    </li>
-                    <hr style="border: 0.5px solid #333; margin: 10px 0;">
-                    <li>
-                        <span class="cor-op1">A soma</span> de <span class="cor-x">um número</span> com o <span class="cor-op2">seu dobro</span> <br>
-                        👉 <span class="cor-x">X</span> <span class="cor-op1">+</span> <span class="cor-op2">2</span><span class="cor-x">X</span>
-                    </li>
-                    <hr style="border: 0.5px solid #333; margin: 10px 0;">
-                    <li>
-                        <span class="cor-x">Um número</span> <span class="cor-op1">ao quadrado</span> <span class="cor-op2">mais dez</span> <br>
-                        👉 <span class="cor-x">X</span><span class="cor-op1">^2</span> <span class="cor-op2">+ 10</span>
-                    </li>
+        <div class="secao-nivel">
+            <button class="btn-toggle" onclick="toggleTeoria('enem', this)">
+                <span>🔴 NÍVEL: ENEM (Interpretação PRO)</span>
+                <span class="seta">ABRIR 🔽</span>
+            </button>
+            <div id="enem" class="conteudo-nivel">
+                <p>O ENEM raramente vai te pedir "o dobro de um número". Ele vai te contar uma história da vida real. O segredo para resolver QUALQUER questão desse tipo é separar a história em duas coisas:</p>
+                <ul>
+                    <li><strong>Valor Fixo:</strong> Aquilo que você paga ou tem, não importa o que aconteça. Fica sozinho.</li>
+                    <li><strong>Valor Variável:</strong> Aquilo que depende de uma quantidade (horas, dias, km). Esse é o cara que ganha o <span class="cor-x">X</span> colado nele!</li>
                 </ul>
-                <div style="text-align: right;">
-                    <button class="btn-toggle" style="width: auto; background: #c0392b;" onclick="toggleNivel('conteudo-medio', this.parentElement.previousElementSibling)">Fechar 🔼</button>
+
+                <h3 style="color: #f1c40f; margin-top: 25px;">Exemplo 1: O Táxi (Soma Clássica)</h3>
+                <div class="exemplo-box">
+                    <em>"Para iniciar uma corrida, o táxi cobra uma <span class="cor-num">taxa fixa de R$ 5,00</span>, mais <span class="cor-extra">R$ 2,00 por quilômetro</span> rodado."</em>
+                    <br><br>
+                    <strong>A Lógica:</strong> Os R$ 5 são fixos. Os R$ 2 mudam dependendo de quantos Km você anda. O Km é o nosso mistério, então ele é o <span class="cor-x">X</span>.<br>
+                    <strong>Tradução:</strong> <span class="cor-num">5</span> + <span class="cor-extra">2</span><span class="cor-x">x</span>
                 </div>
+
+                <h3 style="color: #f1c40f; margin-top: 25px;">Exemplo 2: O Plano de Internet (Soma com Decimais)</h3>
+                <div class="exemplo-box">
+                    <em>"O plano básico custa <span class="cor-num">R$ 40,00 mensais</span>. Se você ultrapassar o limite, paga <span class="cor-extra">R$ 0,50 por cada Gigabyte</span> extra usado."</em>
+                    <br><br>
+                    <strong>A Lógica:</strong> Você paga R$ 40 mesmo se não usar internet nenhuma (Fixo). O R$ 0,50 só é cobrado se tiver Giga extra. O "Giga extra" é o que varia, então ele ganha o <span class="cor-x">X</span>.<br>
+                    <strong>Tradução:</strong> <span class="cor-num">40</span> + <span class="cor-extra">0,50</span><span class="cor-x">x</span>
+                </div>
+
+                <h3 style="color: #f1c40f; margin-top: 25px;">Exemplo 3: A Mesada (Problema de Subtração)</h3>
+                <div class="exemplo-box">
+                    <em>"Você ganhou <span class="cor-num">R$ 100,00</span> de aniversário, mas gasta <span class="cor-extra">R$ 5,00 por dia</span> comprando lanche na escola."</em>
+                    <br><br>
+                    <strong>A Lógica:</strong> Você começa com R$ 100 (Fixo). Mas dessa vez o seu dinheiro está diminuindo! Então não é mais, é menos. O que varia são os dias (cada dia perde 5). O dia é o <span class="cor-x">X</span>.<br>
+                    <strong>Tradução:</strong> <span class="cor-num">100</span> - <span class="cor-extra">5</span><span class="cor-x">x</span>
+                </div>
+
+                <button class="btn-toggle" style="background: #c0392b; margin-top: 20px; padding: 10px;" onclick="toggleTeoria('enem', this.parentElement.previousElementSibling)">FECHAR NÍVEL ENEM 🔼</button>
             </div>
         </div>
 
-        <div class="card" style="border-left: 5px solid #e74c3c;">
-            <h3>🔴 Tradução: Nível PRO (Padrão ENEM)</h3>
-            <p>O ENEM não fala "um número", ele conta uma historinha. Vamos decifrar a vida real!</p>
-            <button class="btn-toggle" onclick="toggleNivel('conteudo-dificil', this)">Abrir Nível PRO 🔽</button>
-            
-            <div id="conteudo-dificil" class="conteudo-nivel" style="border-left-color: #e74c3c;">
-                <p>Pegue cada informação e traduza para montar a fórmula:</p>
-                
-                <div style="background: #111; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-                    <p><em>"Para consertar a geladeira, o técnico cobra uma <span class="cor-op1">taxa fixa de visita de R$ 50</span>, <span class="cor-op2">mais</span> <span class="cor-op3">R$ 30 por cada hora</span> de trabalho."</em></p>
-                    
-                    <p><strong>A Lógica:</strong> A <span class="cor-op1">taxa é fixa</span> (não muda). O que muda? As horas de trabalho! Como não sabemos quantas horas ele vai gastar, <span class="cor-x">a hora vira o nosso "X"</span>.</p>
-                    
-                    <p style="font-size: 1.2em; text-align: center; margin-top: 10px;">
-                        <strong>Tradução:</strong> <span class="cor-op1">50</span> <span class="cor-op2">+</span> <span class="cor-op3">30</span><span class="cor-x">X</span>
-                    </p>
-                </div>
-
-                <div style="text-align: right;">
-                    <button class="btn-toggle" style="width: auto; background: #c0392b;" onclick="toggleNivel('conteudo-dificil', this.parentElement.previousElementSibling)">Fechar 🔼</button>
-                </div>
-            </div>
-        </div>
-
-        <details class="card" style="cursor: pointer; background: #2c3e50; border-left: 5px solid #3498db;">
-            <summary style="font-size: 1.1em; color: #fff;">💡 <strong>Macete: A Regra do Olhou-Escreveu</strong> (Clique para revelar)</summary>
-            <div style="padding-top: 15px;">
-                <p>Sempre que você estiver lendo um problema e aparecer a expressão <span class="foco" style="color: #f1c40f; font-weight: bold;">"UM NÚMERO"</span> e a questão não te disser qual é, um alarme deve tocar na sua cabeça!</p>
-                <p><strong>O Alarme:</strong> Olhou "um número"? Escreveu <span class="cor-x" style="font-size: 1.2em;">X</span> na mesma hora! O restante da frase vai te dizer o que fazer com ele (multiplicar, somar, dividir...).</p>
+        <details class="card" style="border-left: 5px solid #9b59b6;">
+            <summary style="font-size: 1.2em;">💡 <strong>Macete Mestre: A Regra do "Olhou-Escreveu"</strong></summary>
+            <div style="margin-top: 15px; font-size: 1.1em; line-height: 1.6;">
+                <p>O seu cérebro precisa ser treinado para caçar a incógnita (o X) no meio do texto.</p>
+                <p>Sempre que você estiver lendo a questão e aparecer <strong>"UM NÚMERO"</strong>, <strong>"UMA QUANTIDADE"</strong> ou <strong>"POR CADA..."</strong>, o seu cérebro tem que disparar um alerta! Essa é a senha secreta da matemática para te dizer: <strong>"Coloque a letra X aqui!"</strong></p>
             </div>
         </details>
 
-        <div style="text-align: center; margin-top: 40px; margin-bottom: 60px;">
-            <a href="02-exercicios.html" class="btn-acao" style="text-decoration: none; display: inline-block; padding: 15px 40px; font-size: 1.2em; background-color: #2ecc71; color: #000; font-weight: bold; border-radius: 8px; box-shadow: 0 4px 10px rgba(46, 204, 113, 0.4); transition: transform 0.2s;">
-                VAMOS PRATICAR! 🚀
-            </a>
-        </div>
+        <a href="02-exercicios.html" class="btn-acao" style="text-decoration: none; display: block; text-align: center; margin-top: 40px; margin-bottom: 50px; font-size: 1.3em; padding: 20px;">VAMOS PRATICAR O QUE APRENDEMOS! 🚀</a>
     </div>
 
     <script src="../../js/brain.js"></script>
     <script>
-        // Lógica para os botões de Abrir/Fechar as teorias
-        function toggleNivel(idConteudo, btnElement) {
-            const conteudo = document.getElementById(idConteudo);
+        function toggleTeoria(id, btn) {
+            const div = document.getElementById(id);
+            const seta = btn.querySelector('.seta');
             
-            // Se estiver escondido, mostra. Se estiver visível, esconde.
-            if (conteudo.style.display === "none" || conteudo.style.display === "") {
-                conteudo.style.display = "block";
-                
-                // Pega o nome do nível pelo texto original do botão
-                let nomeNivel = btnElement.innerText.replace("Abrir ", "").replace(" 🔽", "");
-                btnElement.innerText = "Fechar " + nomeNivel + " 🔼";
-                btnElement.style.backgroundColor = "#c0392b"; // Fica vermelho ao abrir
+            if (div.style.display === 'block') {
+                div.style.display = 'none';
+                seta.innerText = 'ABRIR 🔽';
+                btn.style.backgroundColor = '#34495e';
             } else {
-                conteudo.style.display = "none";
-                
-                // Restaura o texto original
-                let nomeNivel = btnElement.innerText.replace("Fechar ", "").replace(" 🔼", "");
-                btnElement.innerText = "Abrir " + nomeNivel + " 🔽";
-                btnElement.style.backgroundColor = "#34495e"; // Volta a cor original
+                div.style.display = 'block';
+                seta.innerText = 'FECHAR 🔼';
+                btn.style.backgroundColor = '#2c3e50';
             }
         }
-
-        // Garante que o placar seja atualizado ao carregar a página
-        window.onload = function() {
-            if (typeof atualizarPlacarNaTela === "function") {
-                atualizarPlacarNaTela();
-            }
-        };
+        
+        // Atualiza o placar global ao abrir a página
+        window.onload = () => { if(window.atualizarPlacarNaTela) atualizarPlacarNaTela(); };
     </script>
 </body>
 </html>

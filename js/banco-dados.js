@@ -282,6 +282,295 @@ const BANCO_QUESTOES = {
         ops: "Idade de Maria há 5 anos = (m - 5). João tem o triplo disso = 3 * (m - 5) ou 3(m-5)."
         
             }
-    ] 
-  }
-};
+            ], // Aqui fecha o difícil com a vírgula necessária para começar o próximo
+        medio: [
+            // COLA AQUI AS 40 QUESTÕES QUE TE ENVIEI ANTES
+            {
+                const exerciciosMedios = [
+    {
+        n: 1,
+        q: "Uma esfera com carga Q é colocada em contato com outra de carga 5Q. Qual a expressão da carga final de cada uma?",
+        res: "3Q",
+        dica: "No contato entre esferas idênticas, somamos as cargas e dividimos pelo número de esferas.",
+        ops: "**Passo 1:** Somamos as cargas disponíveis (Q + 5Q = 6Q). **Passo 2:** Como são 2 esferas, dividimos por 2. **Por que?** Porque a natureza busca o equilíbrio térmico e elétrico dividindo o total igualmente. Resultado: 3Q."
+    },
+    {
+        n: 2,
+        q: "Qual a carga final de uma esfera Q após tocar sucessivamente duas esferas neutras (uma de cada vez)?",
+        res: "Q/4",
+        dica: "Cuidado! No toque sucessivo, você divide por 2 a cada novo contato.",
+        ops: "**Passo 1:** Primeiro toque (Q + 0)/2 = Q/2. **Passo 2:** Segundo toque pega o resultado e divide de novo (Q/2)/2 = Q/4. **O segredo:** A carga vai se fragmentando pela metade a cada encontro."
+    },
+    {
+        n: 3,
+        q: "Traduza: O dobro de uma carga Q somado com a metade dessa mesma carga.",
+        res: "2.5Q",
+        dica: "Escreva as duas partes separadamente e depois junte-as.",
+        ops: "**Passo 1:** Identifique o dobro (2Q). **Passo 2:** Identifique a metade (Q/2 ou 0.5Q). **Passo 3:** Some tudo. **Por que?** A Álgebra é como uma receita; primeiro separamos os ingredientes para depois misturar."
+    },
+    {
+        n: 4,
+        q: "Uma carga X é triplicada e depois subtraída de 4 unidades de carga. Como fica a expressão?",
+        res: "3X-4",
+        dica: "A ordem das palavras dita a ordem das operações.",
+        ops: "**Passo 1:** Triplicar significa multiplicar por 3 (3X). **Passo 2:** Subtrair 4 unidades (- 4). **Conclusão:** 3X - 4. Imagine o X como uma caixa com um valor que você ainda vai descobrir."
+    },
+    {
+        n: 5,
+        q: "Represente a carga final de uma esfera 8Q que toca simultaneamente (ao mesmo tempo) duas esferas neutras.",
+        res: "8Q/3",
+        dica: "No contato simultâneo, dividimos a carga total pelo número total de esferas envolvidas.",
+        ops: "**Passo 1:** Total de carga é 8Q. **Passo 2:** Total de esferas envolvidas é 3 (a carregada + 2 neutras). **Resultado:** 8Q/3. **Diferença:** Diferente do toque sucessivo, aqui a divisão é feita de uma vez só."
+    },
+    {
+        n: 6,
+        q: "Escreva a expressão para: O quadrado da carga Q adicionado ao seu sucessor.",
+        res: "Q^2+Q+1",
+        dica: "O sucessor de qualquer número 'n' é sempre 'n + 1'.",
+        ops: "**Passo 1:** O quadrado de Q é Q². **Passo 2:** O sucessor de Q é (Q + 1). **Passo 3:** Junte tudo: Q² + Q + 1. **Pense assim:** Se Q fosse 5, o sucessor seria 6. Na álgebra, usamos letras para valer para qualquer número!"
+    },
+    {
+        n: 7,
+        q: "Uma esfera com carga -4Q toca uma esfera de carga 10Q. Qual a expressão da carga resultante em cada uma?",
+        res: "3Q",
+        dica: "Sinais diferentes se subtraem na soma algébrica.",
+        ops: "**Passo 1:** Some as cargas considerando os sinais (-4Q + 10Q = 6Q). **Passo 2:** Divida por 2 esferas. **Resultado:** 3Q. **Lembre-se:** Dívida (-4) com crédito (10) resulta em saldo positivo (6)."
+    },
+    {
+        n: 8,
+        q: "Traduza: A metade da soma entre uma carga A e uma carga B.",
+        res: "(A+B)/2",
+        dica: "Se a metade é 'da soma', os parênteses são obrigatórios ou a divisão deve estar sob todo o termo.",
+        ops: "**Passo 1:** Primeiro faça a soma (A + B). **Passo 2:** Aplique a metade em tudo. **Importante:** Sem indicar que a soma vem primeiro, você poderia acabar dividindo apenas o B por 2!"
+    },
+    {
+        n: 9,
+        q: "Uma carga Q é elevada ao quadrado e depois dividida pelo seu antecessor. Como escrever isso?",
+        res: "Q^2/(Q-1)",
+        dica: "Antecessor é o que vem antes, ou seja, subtraímos 1.",
+        ops: "**Passo 1:** Quadrado de Q (Q²). **Passo 2:** Antecessor de Q (Q - 1). **Passo 3:** Coloque a divisão. **Estrutura:** Q² / (Q - 1). A barra de divisão separa os dois conceitos."
+    },
+    {
+        n: 10,
+        q: "O triplo do sucessor de uma carga x. Como representar?",
+        res: "3(x+1)",
+        dica: "O triplo é de 'todo' o sucessor, por isso usamos parênteses.",
+        ops: "**Passo 1:** Ache o sucessor (x + 1). **Passo 2:** Multiplique por 3. **Por que os parênteses?** Se escrever 3x + 1, você estaria triplicando apenas o x e não o sucessor inteiro."
+    },
+    {
+        n: 11,
+        q: "Se uma esfera 12Q toca uma neutra e o resultado toca outra esfera de 2Q, qual a carga final?",
+        res: "4Q",
+        dica: "Faça em duas etapas: contato 1, depois contato 2.",
+        ops: "**Contato 1:** (12Q + 0)/2 = 6Q. **Contato 2:** (6Q + 2Q)/2 = 8Q/2 = 4Q. **Atenção:** A carga resultante do primeiro passo torna-se a carga inicial do segundo."
+    },
+    {
+        n: 12,
+        q: "Expresse: O dobro da diferença entre a carga Q e 5.",
+        res: "2(Q-5)",
+        dica: "Diferença é subtração. Use parênteses para garantir que o dobro atinja a subtração inteira.",
+        ops: "**Passo 1:** Diferença entre Q e 5 (Q - 5). **Passo 2:** Dobre o resultado. **Visualização:** Imagine que você primeiro tira 5 de uma caixa e depois duplica o que sobrou lá dentro."
+    },
+    {
+        n: 13,
+        q: "Uma esfera possui carga Q. Ela perde o triplo dessa carga. Qual a expressão da carga final?",
+        res: "-2Q",
+        dica: "Perder significa subtrair.",
+        ops: "**Passo 1:** Você tinha Q. **Passo 2:** Subtraia o triplo (- 3Q). **Cálculo:** Q - 3Q = -2Q. **Física:** Ficar com carga negativa significa que agora você tem excesso de elétrons."
+    },
+    {
+        n: 14,
+        q: "A soma de três cargas consecutivas (ex: x, x+1, x+2). Como representar?",
+        res: "3x+3",
+        dica: "Números consecutivos aumentam de 1 em 1.",
+        ops: "**Passo 1:** Carga 1 (x), Carga 2 (x+1), Carga 3 (x+2). **Passo 2:** Some os termos semelhantes (x + x + x = 3x) e os números (1 + 2 = 3). **Resultado:** 3x + 3."
+    },
+    {
+        n: 15,
+        q: "Uma esfera 20Q toca uma neutra. A metade do resultado é removida. Quanto sobra?",
+        res: "5Q",
+        dica: "Contato primeiro, depois a operação de retirada.",
+        ops: "**Passo 1:** Contato (20Q + 0)/2 = 10Q. **Passo 2:** Tirar a metade de 10Q sobra 5Q. **Lógica:** Se você divide por 2 e depois tira metade do que sobrou, restará apenas um quarto do original."
+    },
+    {
+        n: 16,
+        q: "Traduza: O sucessor do quadrado de uma carga n.",
+        res: "n^2+1",
+        dica: "Primeiro eleve ao quadrado, depois ache o próximo valor.",
+        ops: "**Passo 1:** Quadrado de n (n²). **Passo 2:** Sucessor (somar 1). **Resultado:** n² + 1. Note que é diferente do 'quadrado do sucessor'!"
+    },
+    {
+        n: 17,
+        q: "O dobro de uma carga Q, diminuído de seu antecessor.",
+        res: "Q+1",
+        dica: "Cuidado com o sinal de menos antes do antecessor: -(Q-1).",
+        ops: "**Passo 1:** Dobro (2Q). **Passo 2:** Subtrair o antecessor -(Q - 1). **Passo 3:** 2Q - Q + 1 = Q + 1. **Por que +1?** Menos com menos na matemática vira mais!"
+    },
+    {
+        n: 18,
+        q: "Três esferas (2Q, 4Q e 6Q) são colocadas em contato simultâneo. Qual a carga final de cada?",
+        res: "4Q",
+        dica: "Soma tudo e divide por três.",
+        ops: "**Passo 1:** Soma total (2Q + 4Q + 6Q = 12Q). **Passo 2:** Divisão por 3 (12Q / 3 = 4Q). **Equilíbrio:** Todas terminam iguais."
+    },
+    {
+        n: 19,
+        q: "Expresse: A terça parte da diferença entre 10 e uma carga x.",
+        res: "(10-x)/3",
+        dica: "A ordem na diferença importa: 10 vem antes do x.",
+        ops: "**Passo 1:** Diferença entre 10 e x (10 - x). **Passo 2:** Divida por 3. **Resultado:** (10 - x)/3."
+    },
+    {
+        n: 20,
+        q: "Uma esfera Q toca outra esfera 3Q. O resultado é dobrado. Qual a expressão final?",
+        res: "4Q",
+        dica: "O resultado do contato é a média das cargas.",
+        ops: "**Passo 1:** Contato (Q + 3Q)/2 = 2Q. **Passo 2:** Dobre o resultado (2Q * 2 = 4Q). **Atenção:** Primeiro resolvemos o contato entre os parênteses invisíveis da física."
+    },
+    {
+        n: 21,
+        q: "O antecessor do triplo de uma carga y. Como representar?",
+        res: "3y-1",
+        dica: "Primeiro triplique, depois tire 1.",
+        ops: "**Passo 1:** Triplo de y (3y). **Passo 2:** Antecessor (subtrair 1). **Expressão:** 3y - 1."
+    },
+    {
+        n: 22,
+        q: "A soma de uma carga Q com seu quadrado e seu cubo. Como fica?",
+        res: "Q+Q^2+Q^3",
+        dica: "Cubo é o expoente 3.",
+        ops: "**Passo 1:** Termo 1 (Q). **Passo 2:** Termo 2 (Q²). **Passo 3:** Termo 3 (Q³). **União:** Q + Q² + Q³. **Lembre-se:** Você não pode somar os expoentes aqui, eles são 'caixas' de tamanhos diferentes!"
+    },
+    {
+        n: 23,
+        q: "Uma esfera neutra toca uma esfera de carga 16Q. O resultado é dividido por 4. Qual a expressão?",
+        res: "2Q",
+        dica: "Primeiro o contato médio, depois a divisão extra.",
+        ops: "**Passo 1:** Contato (0 + 16Q)/2 = 8Q. **Passo 2:** Divida por 4 (8Q / 4 = 2Q). **Processo:** É como dividir um bolo com alguém e depois repartir sua fatia em 4."
+    },
+    {
+        n: 24,
+        q: "Traduza: O quádruplo da metade de uma carga Z.",
+        res: "2Z",
+        dica: "Quádruplo é 4 vezes. Metade é dividir por 2.",
+        ops: "**Passo 1:** Metade de Z (Z/2). **Passo 2:** 4 vezes isso (4 * Z/2). **Simplificação:** 4 dividido por 2 é 2. Logo, 2Z. **Dica:** Quatro metades formam dois inteiros!"
+    },
+    {
+        n: 25,
+        q: "A carga final de uma esfera de carga X após tocar uma esfera de carga -X.",
+        res: "0",
+        dica: "Cargas opostas de mesmo valor se anulam no contato.",
+        ops: "**Passo 1:** Soma (X + (-X) = 0). **Passo 2:** Divida por 2 (0 / 2 = 0). **Física:** Isso se chama neutralização por contato."
+    },
+    {
+        n: 26,
+        q: "Represente: O sucessor do triplo de uma carga diminuído de 2.",
+        res: "3x-1",
+        dica: "Sucessor de 3x é (3x + 1). Agora tire 2.",
+        ops: "**Passo 1:** Triplo (3x). **Passo 2:** Sucessor (3x + 1). **Passo 3:** Diminuir 2 (3x + 1 - 2 = 3x - 1)."
+    },
+    {
+        n: 27,
+        q: "Uma esfera 6Q toca uma esfera 2Q. O resultado desse contato toca uma esfera neutra. Qual a carga final?",
+        res: "2Q",
+        dica: "Faça o primeiro contato, ache o valor e use-o para o segundo contato.",
+        ops: "**Passo 1:** (6Q + 2Q)/2 = 4Q. **Passo 2:** (4Q + 0)/2 = 2Q. **Raciocínio:** A carga total inicial (8Q) foi dividida primeiro em 2 partes e depois uma dessas partes em mais 2."
+    },
+    {
+        n: 28,
+        q: "Como representar: A soma entre o quadrado de Q e o dobro de Q?",
+        res: "Q^2+2Q",
+        dica: "Apenas escreva os dois termos e coloque o sinal de +.",
+        ops: "**Passo 1:** Quadrado (Q²). **Passo 2:** Dobro (2Q). **Resultado:** Q² + 2Q. **Aviso:** Não tente somar e dar '3Q', pois Q² e Q são coisas diferentes!"
+    },
+    {
+        n: 29,
+        q: "A metade do sucessor de uma carga n. Como escrever?",
+        res: "(n+1)/2",
+        dica: "O sucessor (n+1) deve ser tratado como um bloco único.",
+        ops: "**Passo 1:** Ache o sucessor (n + 1). **Passo 2:** Aplique a metade. **Escrita:** (n+1)/2. Os parênteses protegem o sucessor."
+    },
+    {
+        n: 30,
+        q: "Uma carga 5Q é subtraída do dobro de uma carga 10Q. Qual a expressão?",
+        res: "15Q",
+        dica: "A ordem é: Dobro de 10Q menos o 5Q.",
+        ops: "**Passo 1:** Ache o dobro de 10Q (20Q). **Passo 2:** Subtraia 5Q. **Cálculo:** 20Q - 5Q = 15Q."
+    },
+    {
+        n: 31,
+        q: "Traduza: O triplo da soma entre x e 1.",
+        res: "3(x+1)",
+        dica: "Sempre que houver 'da soma', use parênteses.",
+        ops: "**Passo 1:** Soma (x + 1). **Passo 2:** Triplique. **Resultado:** 3(x + 1). Note que isso é a mesma coisa que o 'triplo do sucessor'!"
+    },
+    {
+        n: 32,
+        q: "Uma esfera 100Q toca sucessivamente duas esferas neutras. Qual a carga final?",
+        res: "25Q",
+        dica: "Divida por 2, e divida por 2 de novo.",
+        ops: "**Passo 1:** 100Q/2 = 50Q. **Passo 2:** 50Q/2 = 25Q. **Conclusão:** Toques sucessivos reduzem a carga de forma exponencial."
+    },
+    {
+        n: 33,
+        q: "O quadrado da metade de uma carga Q. Como representar?",
+        res: "(Q/2)^2",
+        dica: "Primeiro ache a metade, depois eleve ao quadrado.",
+        ops: "**Passo 1:** Metade (Q/2). **Passo 2:** Eleve o bloco ao quadrado: (Q/2)². **Diferença:** É diferente de Q²/2, onde só o Q está ao quadrado."
+    },
+    {
+        n: 34,
+        q: "Uma carga final é o antecessor do antecessor de x. Como simplificar?",
+        res: "x-2",
+        dica: "Tirar 1 e tirar 1 de novo é o mesmo que tirar 2.",
+        ops: "**Passo 1:** Primeiro antecessor (x - 1). **Passo 2:** Segundo antecessor (x - 1 - 1). **Simplificação:** x - 2."
+    },
+    {
+        n: 35,
+        q: "Uma esfera A (4Q) toca B (neutra). Depois B toca C (neutra). Qual a carga de C no final?",
+        res: "Q",
+        dica: "Acompanhe a carga que vai para a esfera B.",
+        ops: "**Passo 1:** A e B se tocam. B fica com 2Q. **Passo 2:** B (agora com 2Q) toca C (0). Ambos ficam com Q. **Resposta:** C termina com Q."
+    },
+    {
+        n: 36,
+        q: "O dobro do quadrado de uma carga, adicionado de 3.",
+        res: "2Q^2+3",
+        dica: "A potência vem antes da multiplicação na ordem de operações.",
+        ops: "**Passo 1:** Quadrado (Q²). **Passo 2:** Dobro (2Q²). **Passo 3:** Adicione 3. **Final:** 2Q² + 3."
+    },
+    {
+        n: 37,
+        q: "A média aritmética entre as cargas Q, 2Q e 3Q.",
+        res: "2Q",
+        dica: "Média é a soma dividida pela quantidade.",
+        ops: "**Passo 1:** Soma (Q+2Q+3Q = 6Q). **Passo 2:** Divida por 3. **Resultado:** 2Q. **Física:** Esse seria o resultado de um contato simultâneo entre as três."
+    },
+    {
+        n: 38,
+        q: "Traduza: O sucessor da metade de x.",
+        res: "x/2+1",
+        dica: "A ordem importa: primeiro a metade, depois o próximo número.",
+        ops: "**Passo 1:** Metade (x/2). **Passo 2:** Sucessor (+ 1). **Escrita:** x/2 + 1."
+    },
+    {
+        n: 39,
+        q: "Uma carga 10Q é diminuída de sua própria quinta parte.",
+        res: "8Q",
+        dica: "Quinta parte é dividir por 5.",
+        ops: "**Passo 1:** Ache a quinta parte (10Q / 5 = 2Q). **Passo 2:** Subtraia do original (10Q - 2Q = 8Q)."
+    },
+    {
+        n: 40,
+        q: "O quadrado do sucessor de uma carga n.",
+        res: "(n+1)^2",
+        dica: "Primeiro ache o sucessor, depois eleve o bloco todo ao quadrado.",
+        ops: "**Passo 1:** Sucessor (n + 1). **Passo 2:** Eleve ao quadrado: (n + 1)². **Atenção:** Sem os parênteses, apenas o '1' estaria ao quadrado!"
+    }
+];
+
+            }
+        ] // Fecha o array médio
+    } // Fecha o algebra_expressoes
+}; // Fecha o BANCO_QUESTOES
+

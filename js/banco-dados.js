@@ -284,7 +284,6 @@ const BANCO_QUESTOES = {
             }
             ], // Aqui fecha o difícil com a vírgula necessária para começar o próximo
         medio: [
-                    medio: [
             {
 
         n: 1,

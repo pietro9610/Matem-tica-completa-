@@ -284,10 +284,9 @@ const BANCO_QUESTOES = {
             }
             ], // Aqui fecha o difícil com a vírgula necessária para começar o próximo
         medio: [
-            // COLA AQUI AS 40 QUESTÕES QUE TE ENVIEI ANTES
+                    medio: [
             {
-                const exerciciosMedios = [
-    {
+
         n: 1,
         q: "Uma esfera com carga Q é colocada em contato com outra de carga 5Q. Qual a expressão da carga final de cada uma?",
         res: "3Q",
